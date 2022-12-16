@@ -26,3 +26,25 @@
 {"level":"error","message":"{ method: '/cart', function: 'sendMail(marcossolis49@gmail.com)', error: 'No recipients defined' }"}
 {"level":"error","message":"{ method: '/cart', function: 'sendMail(undefined)', error: 'No recipients defined' }"}
 {"level":"error","message":"{ method: '/cart', function: 'sendMail(\"Dear undefined!!\" undefined)', error: 'No recipients defined' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/cart', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}

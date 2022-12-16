@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import { Router } from "express";
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import { getRegisterCtrlr, postRegisterCtrlr, getHomeCtrlr, getLoginCtrlr, getLogoutCtrlr, getRootCtrlr, postLoginCtrlr } from "../controllers/dominio.controller.js";
+import { getRegisterCtrlr, getCartCtrlr, postRegisterCtrlr, getHomeCtrlr, getLoginCtrlr, getLogoutCtrlr, getRootCtrlr, postLoginCtrlr } from "../controllers/dominio.controller.js";
 import { usersDao } from '../daos/index.js';
 
 /* ====================== INSTANCIA DE SERVER ======================= */
@@ -42,6 +42,7 @@ domOper.use(passport.session());
 
 /* ============================== RUTAS ============================= */
 domOper.get('/', getRootCtrlr);
+domOper.get('/cart', getCartCtrlr);
 domOper.get('/home', getHomeCtrlr);
 domOper.get('/login', getLoginCtrlr);
 domOper.post('/login', passport.authenticate('local', { successRedirect: '/home', failureRedirect: '/login-error' }), postLoginCtrlr);

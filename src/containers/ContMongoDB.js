@@ -2,11 +2,10 @@
 import mongoose from 'mongoose';
 import moment from 'moment';
 import { config } from '../utils/config.js';
-
 import {logger} from '../utils/logger.js';
 
 mongoose.set('strictQuery', true);
-await mongoose.connect(config.mongoURL);
+await mongoose.connect(config.mongoDB.url);
 /* ------------------------ CLASE CONTENEDOR ------------------------ */
 class ContMongoDB {
     constructor(collectionName, squema) {

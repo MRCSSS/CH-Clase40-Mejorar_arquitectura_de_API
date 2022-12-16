@@ -87,3 +87,11 @@ export async function postRegisterServ(req) {
         loggErr(error);
     }
 }
+
+export async function getCartServ(req) {
+    try {
+        loggReq(req);
+    } catch (error) {
+        loggErr(error);
+    }
+}

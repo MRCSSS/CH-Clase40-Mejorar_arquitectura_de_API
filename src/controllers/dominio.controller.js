@@ -1,5 +1,5 @@
 /* ============================ MODULOS ============================= */
-import { getRegisterServ, postRegisterServ, getHomeServ, getLoginServ, getLogoutServ, getRootServ, postLoginServ } from "../services/dominio.services.js";
+import { getCartServ, getRegisterServ, postRegisterServ, getHomeServ, getLoginServ, getLogoutServ, getRootServ, postLoginServ } from "../services/dominio.services.js";
 
 /* ========================== CONTROLLERS  ========================== */
 export async function getRootCtrlr(req, res) {
@@ -64,6 +64,15 @@ export async function postRegisterCtrlr(req, res) {
         res.redirect('../login');
     } catch (error) {
         res.render('partials/register-error', { layout: 'register' });
+    }
+}
+
+export async function getCartCtrlr(req, res) {
+    try {
+        await getCartServ(req);
+        res.render('partials/cart', {layout: 'cart'});
+    } catch (error) {
+        res.render('partials/error-page', { layout: 'cart' });
     }
 }
 
