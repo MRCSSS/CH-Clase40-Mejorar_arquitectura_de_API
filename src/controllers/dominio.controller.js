@@ -1,9 +1,23 @@
 /* ============================ MODULOS ============================= */
-import { getCartServ, getRegisterServ, postRegisterServ, getHomeServ, getLoginServ, getLogoutServ, getRootServ, postLoginServ } from "../services/dominio.services.js";
+import { getCartServ, getRegisterServ, postRegisterServ, getHomeServ, getLoginServ, getLogoutServ, postLoginServ } from "../services/dominio.services.js";
+import { logger } from "../utils/logger.js";
+
+/* =========================== FUNCIONES ============================ */
+    /* ------------------------ Loggers ------------------------ */
+function loggReq(status, route){
+    logger.info(`{ status: '${status}', route: '${route}' }`);
+}
+function loggErr(route, error){
+    logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+}
 
 /* ========================== CONTROLLERS  ========================== */
-export async function getRootCtrlr(req, res) {
-    await getRootServ(req);
+export function getRootCtrlr(req, res) {
+    // await getRootServ(req);
+    const route = `${req.method} ${req.baseUrl} ${req.url}`;
+    const status = 200;
+    res.status(status);
+    loggReq(status, route);
     !req.session.user ? res.redirect('/login') : res.redirect('/home');
 }
 
@@ -75,9 +89,3 @@ export async function getCartCtrlr(req, res) {
         res.render('partials/error-page', { layout: 'cart' });
     }
 }
-
-// return res.status(500).json({
-//     status: 500,
-//     route: `${req.method} ${req.baseUrl} ${req.url}`,
-//     error: error
-// });

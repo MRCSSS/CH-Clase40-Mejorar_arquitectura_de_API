@@ -6,9 +6,13 @@ import {logger} from '../../utils/logger.js';
 class UsersDaoMongoDB extends ContMongoDB {
     constructor() {
         super('users', {
-            username: { type: String, required: true },
-            password: { type: String, required: true },
-            email: { type: String, required: true }
+            name:       { type: String, required: true },
+            username:   { type: String, required: true },
+            address:    { type: String, required: true },
+            age:        { type: Number, required: true },
+            password:   { type: String, required: true },
+            phone:      { type: String, required: true },
+            userImg:    { type: String, required: true },
         });
     }
 

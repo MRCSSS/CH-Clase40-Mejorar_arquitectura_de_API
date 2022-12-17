@@ -5,17 +5,17 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 /* ============================ FUNCIONES =========================== */
-function resVarEnv(variable) {
+function resVarEnv(enVar) {
     const regex = /\n\s*/;
-    const found = variable.match(regex)
+    const found = enVar.match(regex)
 
     if ( found !== null && found.length > 0 ) {
-        variable.replace(regex, '');
-        return JSON.parse( variable )
-    } else if ( variable === '' && variable === undefined && variable === null ) {
+        enVar.replace(regex, '');
+        return JSON.parse( enVar )
+    } else if ( enVar === '' && enVar === undefined && enVar === null ) {
         return '';
     } else {
-        return variable;
+        return enVar;
     }
 }
 /* ============================ VARIABLES =========================== */

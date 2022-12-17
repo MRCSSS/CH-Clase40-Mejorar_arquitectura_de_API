@@ -7,7 +7,7 @@ import { getRegisterCtrlr, getCartCtrlr, postRegisterCtrlr, getHomeCtrlr, getLog
 import { usersDao } from '../daos/index.js';
 
 /* ====================== INSTANCIA DE SERVER ======================= */
-const domOper = Router();
+const siteOper = Router();
 
 /* ========================== MIDDLEWARES =========================== */
     /* ----------------------- Passport ------------------------ */
@@ -27,28 +27,25 @@ passport.use(new LocalStrategy(
         }
     }
 ));
-
 passport.serializeUser((user, done)=>{
     done(null, user.username);
 });
-
 passport.deserializeUser( async (username, done)=>{
     const user = await usersDao.searchUser(username);
     done(null, user);
 });
-
-domOper.use(passport.initialize());
-domOper.use(passport.session());
+siteOper.use(passport.initialize());
+siteOper.use(passport.session());
 
 /* ============================== RUTAS ============================= */
-domOper.get('/', getRootCtrlr);
-domOper.get('/cart', getCartCtrlr);
-domOper.get('/home', getHomeCtrlr);
-domOper.get('/login', getLoginCtrlr);
-domOper.post('/login', passport.authenticate('local', { successRedirect: '/home', failureRedirect: '/login-error' }), postLoginCtrlr);
-domOper.get('/logout', getLogoutCtrlr);
-domOper.get('/register', getRegisterCtrlr);
-domOper.post('/register', postRegisterCtrlr);
+siteOper.get  ('/',         getRootCtrlr);
+siteOper.get  ('/cart',     getCartCtrlr);
+siteOper.get  ('/home',     getHomeCtrlr);
+siteOper.get  ('/login',    getLoginCtrlr);
+siteOper.post ('/login',    passport.authenticate('local', { successRedirect: '/home', failureRedirect: '/login-error' }), postLoginCtrlr);
+siteOper.get  ('/logout',   getLogoutCtrlr);
+siteOper.get  ('/register', getRegisterCtrlr);
+siteOper.post ('/register', postRegisterCtrlr);
 
 /* ====================== MODULOS EXPORTADOS ======================== */
-export default domOper;
+export default siteOper;

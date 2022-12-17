@@ -1,7 +1,7 @@
 # dependencies
 /node_modules
-notas.js
-/public/sass
+# notas.js
+# /public/styles/sass
 # /.pnp
 # .pnp.js
 

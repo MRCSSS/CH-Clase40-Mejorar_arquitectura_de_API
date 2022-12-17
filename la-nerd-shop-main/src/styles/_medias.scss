@@ -1,0 +1,124 @@
+@media screen and (max-width: 767px) {
+	//products
+	.social-icons-contact {
+		margin-left: 50px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.products-container {
+		margin-top: 150px;
+	}
+
+	.productos-filter {
+		margin-right: calc(30px + 5vw);
+	}
+
+	// Need Help component
+	.only-desktop {
+		display: block !important;
+	}
+
+	.need-help svg {
+		width: 64px;
+		height: 64px;
+	}
+
+	nav.desktop {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		gap: Max(32px, 1vw);
+
+		a {
+			text-decoration: none;
+			color: $white-color;
+			font-family: $primary-light-font;
+			font-size: 18px;
+			text-shadow: $shadow;
+
+			&.active {
+				font-family: $primary-bold-font;
+			}
+		}
+	}
+
+	.header {
+		height: 46px;
+		padding: 0 18px;
+		width: 95%;
+
+		.header-logo img {
+			width: 80px;
+		}
+
+		.header-icons a {
+			height: 46px;
+		}
+
+		.burger-btn {
+			display: none;
+		}
+
+		nav.desktop {
+			display: flex;
+			padding: 0 1rem;
+		}
+	}
+
+	.mobile-menu {
+		display: none !important;
+	}
+
+	.carousel-section {
+		padding-top: 100px;
+	}
+	// ABOUT US
+	.about-us {
+		grid-template-columns: 1.2fr 0.8fr;
+		padding: 3rem calc(30px + 5vw);
+		gap: 1rem 2.5rem;
+		align-items: center;
+
+		.about-us-logo {
+			img {
+				max-width: 300px;
+			}
+		}
+
+		.owner {
+			grid-area: 1 / 2 / 3 / 3;
+		}
+	}
+
+	//Contact
+	.border {
+		border: none;
+		border-left: 1px solid white;
+		border-right: 1px solid white;
+	}
+	.contact-icon-container {
+		height: 250px;
+	}
+
+	.contact-container {
+		padding-top: 100px;
+	}
+	.contact-first-section {
+		margin-left: calc(30px + 5vw);
+		align-items: flex-start;
+	}
+
+	.contact-logo img {
+		margin-left: calc(30px + 5vw);
+	}
+
+	.contact-end {
+		flex-direction: row;
+		justify-content: center;
+	}
+	.contact-social-help-container {
+		justify-content: flex-start;
+		padding-left: calc(30px + 5vw);
+	}
+}

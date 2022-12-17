@@ -1,0 +1,35 @@
+.products-container {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.3) 90%);
+}
+
+.products-title-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.productos-filter {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 16px;
+}
+
+.need-help-products {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-shadow: $shadow;
+	text-decoration: none;
+	color: inherit;
+	font-size: 14px;
+	gap: 15px;
+	padding-right: 15px;
+	align-self: flex-end;
+	margin: 30px;
+}

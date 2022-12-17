@@ -19,13 +19,13 @@ function loggErr(req, error){
 }
 
 /* =========================== SERVICIOS ============================ */
-export async function getRootServ(req) {
-    try {
-        loggReq(req);
-    } catch (error) {
-        loggErr(req,error);
-    }
-}
+// export async function getRootServ(req) {
+//     try {
+//         loggReq(req);
+//     } catch (error) {
+//         loggErr(req,error);
+//     }
+// }
 
 export async function getHomeServ(req) {
     try {

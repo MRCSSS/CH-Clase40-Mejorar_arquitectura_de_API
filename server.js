@@ -1,17 +1,16 @@
 /* ============================ MODULOS ============================= */
-// import bcrypt from 'bcrypt';
-import connectMongo from 'connect-mongo';
-import express from 'express';
-import { create } from 'express-handlebars';
-import session from 'express-session';
+import connectMongo from 'connect-mongo'; // Conexión a MondoDB
+import express from 'express'; // Entorno de trabajo para la appweb (web framework)
+import { create } from 'express-handlebars'; // Plantillas con Express
+import session from 'express-session'; // Middleware de sesiones para Express
 import { createServer } from 'http';
 // import { normalize, schema } from 'normalizr';
-import path from 'path';
+import path from 'path'; // Módulo para trabajar con paths de archivos y directorios
 import { Server } from 'socket.io';
 import { msgsDao, productsDao, usersDao } from './src/daos/index.js';
-import domOper from './src/routers/dominio.routes.js';
-import {config} from './src/utils/config.js';
-import {logger} from './src/utils/logger.js';
+import siteOper from './src/routers/site.routes.js';
+import {config} from './src/utils/config.js';   // Archivo de configuración
+import {logger} from './src/utils/logger.js';   // Archivo de loggers
 
 /* ====================== INSTANCIA DE SERVER ======================= */
 const app = express();  // Instanciando Express (Creando aplicación)
@@ -44,7 +43,7 @@ app.set('views', path.join(process.cwd(), 'src/views'));
 app.set('view engine', 'hbs');
 
 /* ============================== RUTAS ============================= */
-app.use('/', domOper);
+app.use('/', siteOper);
 app.all('*', (req, res)=>{
     logger.warn(`{ url: '${req.baseUrl}${req.url}', method: '${req.method}' }`);
     res.render('partials/page-not-found', { layout: 'home' });
