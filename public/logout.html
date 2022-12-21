@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Out</title>
+    <!-- Importando HandleBars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- Importando estilos bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Importando Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Importando CSS file -->
+    <link rel="stylesheet" href="styles/style.css"  />
+</head>
+<body>
+    <div id="root" class="container mt-5">
+        <div id='login' class="jumbotron bg-dark text-white" >
+            <h2>Hasta luego {{user}}</h2>
+        </div>    
+    </div>
+    <script>(() => setTimeout(() => window.location.href = "/", 2000 ))()</script>
+    <!-- Toggle script -->
+    <script> $(document).ready(function(){ $(".dropdown-toggle").dropdown(); }); </script>
+</body>
+</html>

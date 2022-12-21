@@ -4,12 +4,13 @@ import express from 'express'; // Entorno de trabajo para la appweb (web framewo
 import { create } from 'express-handlebars'; // Plantillas con Express
 import session from 'express-session'; // Middleware de sesiones para Express
 import { createServer } from 'http';
-// import { normalize, schema } from 'normalizr';
+import { normalize, schema } from 'normalizr';
 import path from 'path'; // Módulo para trabajar con paths de archivos y directorios
 import { Server } from 'socket.io';
-import { msgsDao, productsDao, usersDao } from './src/daos/index.js';
+import { msgsDao, productsDao, usersDao } from './src/models/daos/index.js';
 import siteOper from './src/routers/site.routes.js';
-import {config} from './src/utils/config.js';   // Archivo de configuración
+// import docOper from './src/routers/documentation.routes.js';
+import {config} from './src/config/config.js';   // Archivo de configuración
 import {logger} from './src/utils/logger.js';   // Archivo de loggers
 
 /* ====================== INSTANCIA DE SERVER ======================= */
@@ -22,8 +23,8 @@ const exphbs = create({ // Instanciando Handlebars con configuración
 });
 const MongoStore = connectMongo.create({    // Instanciando Conexión a MondoDB con configuración (PERSISTENCIA DE SESION MONGO)
     mongoUrl: config.mongoDB.url,
-    ttl: 10 *60 // Minutos *60
-});
+    ttl: 10 *60, // Minutos *60
+}); 
 
 /* ========================== MIDDLEWARES =========================== */
 app.use(express.json());    // Method in-built, reconoce el request object como JSON.
@@ -44,33 +45,41 @@ app.set('view engine', 'hbs');
 
 /* ============================== RUTAS ============================= */
 app.use('/', siteOper);
+// app.use('/doc', docOper);
+// app.use('/healtcheck', (res, req) => {
+//     res.send.json({
+//         version: '',
+//         description: '',
+//         status: '',
+//     });
+// });
 app.all('*', (req, res)=>{
     logger.warn(`{ url: '${req.baseUrl}${req.url}', method: '${req.method}' }`);
     res.render('partials/page-not-found', { layout: 'home' });
 });
 
 /* ===================== NORMALIZANDO MENSAJES ====================== */
-// const authorSchema = new schema.Entity('author', {}, { idAttribute: 'email' });
-// const messageSchema = new schema.Entity('post', { author: authorSchema }, { idAttribute: 'id' });
-// const msgsSchema = new schema.Entity('posts', { messages: [messageSchema] }, { idAttribute: 'id' });
-// const normalizing = (fullMsgs) => normalize(fullMsgs, msgsSchema);
+const authorSchema = new schema.Entity('author', {}, { idAttribute: 'email' });
+const messageSchema = new schema.Entity('post', { author: authorSchema }, { idAttribute: 'id' });
+const msgsSchema = new schema.Entity('posts', { messages: [messageSchema] }, { idAttribute: 'id' });
+const normalizing = (fullMsgs) => normalize(fullMsgs, msgsSchema);
 
-// async function getAllNormalized() {
-//     const msgs = await msgsDao.getAll();
-//     return normalizing({ id: 'messages', msgs});
-// }
+async function getAllNormalized() {
+    const msgs = await msgsDao.getAll();
+    return normalizing({ id: 'messages', msgs});
+}
 
 /* ============================ WEBSOCKET =========================== */
 io.on('connection', async (socket) => {
     logger.info(`Client conected: ${socket.id}`);
 
-    // socket.emit('serv-msgs', await getAllNormalized());
+    socket.emit('serv-msgs', await getAllNormalized());
     socket.emit('serv-prods', await productsDao.getAll());
 
-    // socket.on('client-msg', async (msg) => {
-    //     await msgsDao.save(msg);
-    //     io.sockets.emit('serv-msgs', await getAllNormalized());
-    // });
+    socket.on('client-msg', async (msg) => {
+        await msgsDao.save(msg);
+        io.sockets.emit('serv-msgs', await getAllNormalized());
+    });
     socket.on('client-prods', async (prod) => {
         await productsDao.save(prod);
         io.sockets.emit('serv-prods', await productsDao.getAll());

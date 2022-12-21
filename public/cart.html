@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart - {{name}} - {{email}}</title>
+    <!-- Importando HandleBars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- Importando Socket I/O -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Importando normalizr -->
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <!-- Importando estilos bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Importando jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Importando popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Importando bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Importando Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Importando CSS file -->
+    <link rel="stylesheet" href="styles/style.css"  />
+</head>
+<body>
+    <div id='root' >
+        <header class="sticky-top bg-dark" >
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark m-auto py-1" style="max-width: 1420px;">
+                <a class="navbar-brand ml-1 ml-md-5 mr-xl-5 mr-1 py-2 px-md-3" href="/home">SITIO</a>
+                <div id="mobileIcons">
+                    <a class="d-md-none mx-2 py-3 px-2" href="/cart">
+                        <i class="fa fa-shopping-cart" style="font-size:30px;color:gray;position:relative;top:4px;"></i>
+                    </a>
+                    <button class="navbar-toggler mx-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation" style="border: transparent;">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto ">
+                        <li class="nav-item d-none d-md-inline mx-md-3 active" >
+                            <a class="nav-link disabled" href="/home">Ir a home</a>
+                        </li>
+                        <li class="nav-item mx-md-3">
+                            <a class="nav-link disabled" href="/products">Productos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 " >
+                            <a class="d-none d-md-inline nav-link py-3 px-3" href="/cart" >
+                                <i class="fa fa-shopping-cart" style="font-size:30px;color:gray;position:relative;top:4px;"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-md-3 dropdown">
+                            <a class="nav-link dropdown-toggle" type="button"  data-toggle="dropdown"  data-target="#countDropdownContent" aria-controls="countDropdownContent" aria-expanded="true" aria-label="Toggle dropdown" style="position:relative;bottom:5px;">
+                                <i class="fa fa-user-circle" style="font-size:30px;color:gray;position:relative;top:4px;"></i>
+                                {{user}}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item disabled" href="#">Mi Cuenta</a>
+                                <div class="dropdown-divider"></div>
+                                <form class="form" action="/logout" method="post" role="form" autocomplete="off">
+                                    <button class="dropdown-item" type="submit" >Cerrar sesión</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container mt-3">
+            <!-- {{!-- <div id='cart_content' class="jumbotron"></div> --}} -->
+            <div class="jumbotron" style="background-color: gray;color: white;text-align:center;">
+                <h1>Aquí parecerá la lista de productos en el carrito</h1>
+                <p>El botón confirmaría la orden de compra del carrito actual</p>
+                <form action="/cart" method="post">
+                    <input type="hidden" id="name" name="name" value="{{name}}">
+                    <input type="hidden" id="email" name="email" value="{{email}}">
+                    <button class="btn btn-warning my-5">COMPRAR</button>
+                </form>
+            </div>
+    
+        </div>
+    </div>
+        <!-- Toggle script -->
+    <script> $(document).ready(function(){ $(".dropdown-toggle").dropdown(); }); </script>
+    <!-- <script src="js/cart.js"></script> -->
+</body>
+</html>

@@ -67,3 +67,172 @@
 {"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
 {"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
 {"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/logout', method: 'POST' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/logout', method: 'POST' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/logout', method: 'POST' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/logout', method: 'POST' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/logout', method: 'POST' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'ReferenceError: user is not defined' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'ReferenceError: data is not defined' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'ReferenceError: data is not defined' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'ReferenceError: data is not defined' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"warn","message":"{ url: '/images/icons/gear.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon-precomposed.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon-precomposed.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon-precomposed.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon-precomposed.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon-precomposed.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/apple-touch-icon.png', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: res is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"warn","message":"{ url: '/favicon.ico', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', error: 'TypeError: req.isAuthenticated is not a function' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'TypeError: Cannot destructure property 'username' of 'req.body' as it is undefined.' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'ReferenceError: generateHashPassword is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}

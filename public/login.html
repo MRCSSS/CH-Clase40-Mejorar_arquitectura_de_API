@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <!-- Importando HandleBars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- Importando estilos bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Importando Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Importando CSS file -->
+    <link rel="stylesheet" href="styles/style.css"  />
+</head>
+<body>
+    <div id="root" class="container mt-5">
+        <div id="login" class="jumbotron">
+            <h1 style="color:white;text-align:center;">Login de Usuario</h1>
+            <br>
+            <form class="form" action="/login" method="post" role="form" autocomplete="off">
+                <div class="form-group">
+                    <label for="username"><b>Correo electrónico:</b></label>
+                    <input id="username" class="form-control" type="email" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><b>Contraseña:</b></label>
+                    <input id="password" class="form-control" type="password" name="password" required>
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-info mt-2 mb-2 px-5" type="submit" value="Login">Entrar</button>
+                </div>
+            </form>
+            <hr>
+            <div class="text-center" role="" >
+                <p class="m-0 p-0">No estoy registrado. </p>
+                <a onclick="location.href = '/register'" style="color:white;cursor: pointer;text-decoration: underline;">Ir a Registrarme</a>
+            </div>
+        </div>    
+    </div>
+    <!-- Toggle script -->
+    <script> $(document).ready(function(){ $(".dropdown-toggle").dropdown(); }); </script>
+</body>
+</html>

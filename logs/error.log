@@ -12,3 +12,32 @@
 {"level":"error","message":"{ method: '/cart', function: 'sendMail(marcossolis49@gmail.com)', error: 'No recipients defined' }"}
 {"level":"error","message":"{ method: '/cart', function: 'sendMail(undefined)', error: 'No recipients defined' }"}
 {"level":"error","message":"{ method: '/cart', function: 'sendMail(\"Dear undefined!!\" undefined)', error: 'No recipients defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'ReferenceError: user is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'ReferenceError: data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'ReferenceError: data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'ReferenceError: data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: listaProductos is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /cart', error: 'ReferenceError: res is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /', error: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', error: 'TypeError: req.isAuthenticated is not a function' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /logout', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'TypeError: Cannot destructure property 'username' of 'req.body' as it is undefined.' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'ReferenceError: generateHashPassword is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}

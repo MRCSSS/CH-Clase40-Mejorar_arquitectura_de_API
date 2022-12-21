@@ -1,91 +1,151 @@
 /* ============================ MODULOS ============================= */
-import { getCartServ, getRegisterServ, postRegisterServ, getHomeServ, getLoginServ, getLogoutServ, postLoginServ } from "../services/dominio.services.js";
+import {  postRegisterServ, getHomeServ } from "../services/dominio.services.js";
 import { logger } from "../utils/logger.js";
 
 /* =========================== FUNCIONES ============================ */
-    /* ------------------------ Loggers ------------------------ */
-function loggReq(status, route){
-    logger.info(`{ status: '${status}', route: '${route}' }`);
-}
-function loggErr(route, error){
-    logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+async function reqInit(req){
+    const auth = req.session.passport ? true : false;
+    const route = `${req.method} ${req.baseUrl} ${req.url}`;
+
+    return {auth, route} ;
 }
 
 /* ========================== CONTROLLERS  ========================== */
-export function getRootCtrlr(req, res) {
-    // await getRootServ(req);
-    const route = `${req.method} ${req.baseUrl} ${req.url}`;
-    const status = 200;
-    res.status(status);
-    loggReq(status, route);
-    !req.session.user ? res.redirect('/login') : res.redirect('/home');
-}
-
-export async function getHomeCtrlr(req, res) {
+export async function getRootCtrlr(req, res) {
+    const {auth, route} = await reqInit(req);
     try {
-        const data = await getHomeServ(req);
-        if(data !== null){
-            res.render('partials/home', { layout: 'home', user: data.name, email: data.username });
+        res.status(200)
+        logger.info(`{ status: '200', route: '${route}' }`);
+        if (auth === false){
+            res.redirect('/login');
         } else {
-            res.redirect('/');
+            res.redirect('/home');
         }
+        // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        res.render('partials/error-page', { layout: 'home' });
-    }
-}
-
-export async function getLoginCtrlr(req, res) {
-    try {
-        await getLoginServ(req);
-        res.render('partials/login', {layout: 'login'});
-    } catch (error) {
-        res.render('partials/error-page', { layout: 'login' });
-    }
-}
-
-export async function postLoginCtrlr(req, res) {
-    try {
-        await postLoginServ(req);
-    } catch (error) {
-        res.render('partials/login-error', { layout: 'login' });
-    }
-}
-
-export async function getLogoutCtrlr(req, res) {
-    try {
-        const data = await getLogoutServ(req);
-        res.render('partials/logout', { layout: 'logout', user: data.username });
-    } catch (error) {
-        res.render('partials/error-page', { layout: 'home' });
-    }
-}
-
-export async function getRegisterCtrlr(req, res) {
-    try {
-        await getRegisterServ(req);
-        res.render('partials/register', {layout: 'register'});
-    } catch (error) {
-        res.render('partials/error-page', { layout: 'register' });
-    }
-}
-
-export async function postRegisterCtrlr(req, res) {
-    try {
-        const data = await postRegisterServ(req);
-        if (data === 'userExists') {
-            res.render('partials/register-error', { layout: 'register' });
-        }
-        res.redirect('../login');
-    } catch (error) {
-        res.render('partials/register-error', { layout: 'register' });
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
     }
 }
 
 export async function getCartCtrlr(req, res) {
+    const {auth, route} = await reqInit(req);
     try {
-        await getCartServ(req);
-        res.render('partials/cart', {layout: 'cart'});
+        res.status(200)
+        logger.info(`{ status: '200', route: '${route}' }`);
+        if (auth === false){
+            res.redirect('/login');
+        } else {
+            res.render('partials/cart', {layout: 'cart'});
+        }
+        // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        res.render('partials/error-page', { layout: 'cart' });
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
     }
 }
+
+export async function getHomeCtrlr(req, res) {
+    const {auth, route} = await reqInit(req);
+    try {
+        const { name, username } = await getHomeServ(req.session.passport.user);
+        res.status(200)
+        logger.info(`{ status: '200', route: '${route}' }`);
+        if (auth === false){
+            res.redirect('/login');
+        } else {
+            res.render('partials/home', { layout: 'home', user: name, email: username });
+        }
+        // return res.status(200).json({ status: 200, route: route, data: data });
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
+export async function getLoginCtrlr(req, res) {
+    const {route} = await reqInit(req);
+    try {
+        res.status(200)
+        logger.info(`{ status: '200', route: '${route}' }`);
+        res.render('partials/login', { layout: 'login' });
+        // return res.status(200).json({ status: 200, route: route, data: data });
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
+export async function postLoginCtrlr(req, res) {
+    const {route} = await reqInit(req);
+    try {
+        res.status(200);
+        logger.info(`{ status: '200', route: '${route}' }`);
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
+export async function getLogoutCtrlr(req, res) {
+    const {route} = await reqInit(req);
+    try {
+        // const data = await getHomeServ(req.session.passport.user);
+        res.status(200)
+        logger.info(`{ status: '200', route: '${route}' }`);
+        res.render('partials/logout', { layout: 'logout' });
+        // return res.status(200).json({ status: 200, route: route, data: data });
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
+export async function postLogoutCtrlr(req, res) {
+    const {route} = await reqInit(req);
+    try {
+        res.status(200);
+        logger.info(`{ status: '200', route: '${route}' }`);
+        req.session.destroy();
+        res.redirect('../logout');
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
+export async function getRegisterCtrlr(req, res) {
+    const {auth, route} = await reqInit(req);
+    try {
+        res.status(200);
+        logger.info(`{ status: '200', route: '${route}' }`);
+        if (auth === true){
+            const { name, username } = await getHomeServ(req.session.passport.user);
+            res.render('partials/home', { layout: 'home', user: name, email: username });
+        } else {
+            res.render('partials/register', {layout: 'register'});
+        }
+        // return res.status(200).json({ status: 200, route: route, data: data });
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
+export async function postRegisterCtrlr(req, res) {
+    const {route} = await reqInit(req);
+    try {
+        const data = await postRegisterServ(req.body);
+        res.status(200);
+        logger.info(`{ status: '200', route: '${route}' }`);
+        if (data === 'userExists') {
+            res.render('partials/register-error', { layout: 'register' });
+        } else {
+            res.redirect('../login');
+        }
+    } catch (error) {
+        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
+        return res.status(500).json({ status: 500, route: route, error: error }); 
+    }
+}
+
