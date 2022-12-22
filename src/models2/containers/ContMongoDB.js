@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 import moment from 'moment';
 import { config } from '../../config/config.js';
-import {logger} from '../../utils/logger.js';
+import {logger} from '../../config/logger.js';
 
 mongoose.set('strictQuery', true);
 await mongoose.connect(config.mongoDB.url);

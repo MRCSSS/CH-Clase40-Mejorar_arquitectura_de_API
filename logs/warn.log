@@ -297,3 +297,4 @@
 {"level":"warn","message":"{ url: '/api/v1/productos', method: 'GET' }"}
 {"level":"warn","message":"{ url: '/templates/prod_table.hbs', method: 'GET' }"}
 {"level":"warn","message":"{ url: '/templates/prod_table.hbs', method: 'GET' }"}
+{"level":"warn","message":"{ url: '/js/cart.js', method: 'GET' }"}

@@ -1,10 +1,12 @@
 /* ============================ MODULOS ============================= */
 import bcrypt from 'bcrypt';
-import { usersDao } from "../models/daos/index.js";
+// import { usersDao } from "../models/daos/index.js";
 import { unlink } from 'node:fs';
 // import { createTransport } from 'nodemailer';
+import ProductoDAOMongoDB from "../models2/daos/Productos.dao.js.js";
 
 /* ====================== INSTANCIA DE ROUTER ======================= */
+const DAO = new ProductoDAOMongoDB();
 // const transporter = createTransport({
 //     host: 'smtp.hostinger.com',
 //     port: 465,
@@ -20,12 +22,12 @@ import { unlink } from 'node:fs';
 
 /* =========================== SERVICIOS ============================ */
 export async function getHomeServ(email) {
-    const {name, username} = await usersDao.searchUser(email);
+    const {name, username} = await DAO.searchUser(email);
     return {name, username};
 }
 
 export async function postRegisterServ(formData, fileData) {
-    const userExists = await usersDao.searchUser(formData.username);
+    const userExists = await DAO.searchUser(formData.username);
 
     if (userExists !== null) {
         unlink(`${fileData.path}`);
@@ -43,7 +45,7 @@ export async function postRegisterServ(formData, fileData) {
         phone,
         userImg: imgName
     };
-    await usersDao.save(newUser);
+    await DAO.save(newUser);
 
     return null;
 }
