@@ -3,11 +3,21 @@ import bcrypt from 'bcrypt';
 import { Router } from "express";
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import { getRegisterCtrlr, getCartCtrlr, postRegisterCtrlr, getHomeCtrlr, getLoginCtrlr, getLogoutCtrlr, getRootCtrlr, postLoginCtrlr, postLogoutCtrlr } from "../controllers/dominio.controller.js";
+import { getRegisterCtrlr, getCartCtrlr, postRegisterCtrlr, getHomeCtrlr, getLoginCtrlr, getLogoutCtrlr, getRootCtrlr, postLogoutCtrlr } from "../controllers/dominio.controller.js";
 import { usersDao } from '../models/daos/index.js';
+import multer from 'multer';
 
-/* ====================== INSTANCIA DE SERVER ======================= */
+/* ====================== INSTANCIA DE ROUTER ======================= */
 const siteOper = Router();
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}_${file.originalname}`);
+    }
+});
+const upload = multer({storage: storage});
 
 /* ========================== MIDDLEWARES =========================== */
     /* ----------------------- Passport ------------------------ */
@@ -42,11 +52,11 @@ siteOper.get  ('/',         getRootCtrlr);
 siteOper.get  ('/cart',     getCartCtrlr);
 siteOper.get  ('/home',     getHomeCtrlr);
 siteOper.get  ('/login',    getLoginCtrlr);
-siteOper.post ('/login',    passport.authenticate('local', { successRedirect: '/home', failureRedirect: '/login-error' }), postLoginCtrlr);
+siteOper.post ('/login',    passport.authenticate('local', { successRedirect: '/home', failureRedirect: '/login-error' }));
 siteOper.get  ('/logout',   getLogoutCtrlr);
 siteOper.post ('/logout',   postLogoutCtrlr);
 siteOper.get  ('/register', getRegisterCtrlr);
-siteOper.post ('/register', postRegisterCtrlr);
+siteOper.post ('/register', upload.single('userImg'), postRegisterCtrlr);
 
 /* ====================== MODULOS EXPORTADOS ======================== */
 export default siteOper;

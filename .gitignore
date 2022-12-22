@@ -4,6 +4,7 @@
 # /public/styles/sass
 # /.pnp
 # .pnp.js
+/00-*
 
 # testing
 # /coverage

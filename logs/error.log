@@ -41,3 +41,49 @@
 {"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'TypeError: Cannot destructure property 'username' of 'req.body' as it is undefined.' }"}
 {"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'ReferenceError: generateHashPassword is not defined' }"}
 {"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'Error: data and salt arguments required' }"}
+{"level":"error","message":"{ status: 500, route: 'POST  /register', error: 'ReferenceError: data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', error: 'TypeError: Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ error: 'ValidationError: userImg: Path `userImg` is required.' }"}
+{"level":"error","message":"{ error: 'ValidationError: userImg: Path `userImg` is required.' }"}
+{"level":"error","message":"{ error: 'ValidationError: userImg: Path `userImg` is required.' }"}
+{"level":"error","message":"{ error: 'ValidationError: userImg: Path `userImg` is required.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'Error: No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', referenceerror: 'data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', referenceerror: 'data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', referenceerror: 'data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', ReferenceError: 'data is not defined' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /register', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}

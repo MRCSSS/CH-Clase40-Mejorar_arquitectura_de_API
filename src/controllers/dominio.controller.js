@@ -17,14 +17,13 @@ export async function getRootCtrlr(req, res) {
         res.status(200)
         logger.info(`{ status: '200', route: '${route}' }`);
         if (auth === false){
-            res.redirect('/login');
+            return res.redirect('/login');
         } else {
-            res.redirect('/home');
+            return res.redirect('/home');
         }
-        // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
@@ -36,12 +35,13 @@ export async function getCartCtrlr(req, res) {
         if (auth === false){
             res.redirect('/login');
         } else {
+            // const data = await 
+            // return res.status(200).json({ status: 200, route: route, data: data });
             res.render('partials/cart', {layout: 'cart'});
         }
-        // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
@@ -58,32 +58,25 @@ export async function getHomeCtrlr(req, res) {
         }
         // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
 export async function getLoginCtrlr(req, res) {
     const {route} = await reqInit(req);
     try {
-        res.status(200)
+        // const data = await 
         logger.info(`{ status: '200', route: '${route}' }`);
+        // return res.status(200).json({
+        //     status: 200,
+        //     route: route,
+        //     data: data,
+        // });
         res.render('partials/login', { layout: 'login' });
-        // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
-    }
-}
-
-export async function postLoginCtrlr(req, res) {
-    const {route} = await reqInit(req);
-    try {
-        res.status(200);
-        logger.info(`{ status: '200', route: '${route}' }`);
-    } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
@@ -96,8 +89,8 @@ export async function getLogoutCtrlr(req, res) {
         res.render('partials/logout', { layout: 'logout' });
         // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
@@ -109,8 +102,8 @@ export async function postLogoutCtrlr(req, res) {
         req.session.destroy();
         res.redirect('../logout');
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
@@ -127,15 +120,17 @@ export async function getRegisterCtrlr(req, res) {
         }
         // return res.status(200).json({ status: 200, route: route, data: data });
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
 
 export async function postRegisterCtrlr(req, res) {
     const {route} = await reqInit(req);
     try {
-        const data = await postRegisterServ(req.body);
+        const formData = req.body;
+        const fileData = req.file;
+        const data = await postRegisterServ(formData, fileData);
         res.status(200);
         logger.info(`{ status: '200', route: '${route}' }`);
         if (data === 'userExists') {
@@ -144,8 +139,7 @@ export async function postRegisterCtrlr(req, res) {
             res.redirect('../login');
         }
     } catch (error) {
-        logger.error(`{ status: 500, route: '${route}', error: '${error}' }`);
-        return res.status(500).json({ status: 500, route: route, error: error }); 
+        logger.error(`{ status: 500, route: '${route}', ${error.name}: '${error.message}' }`);
+        return res.status(500).json({ status: 500, route: route, err: error.name, err_msg: error.message }); 
     }
 }
-
