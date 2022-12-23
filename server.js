@@ -7,11 +7,11 @@ import { createServer } from 'http';                                    //
 import { normalize, schema } from 'normalizr';                          // 
 import path from 'path';                                                // Módulo para trabajar con paths de archivos y directorios
 import { Server } from 'socket.io';                                     // 
-import { msgsDao, productsDao } from './src/models/daos/index.js';      // 
+// import { msgsDao, productsDao } from './src/models/daos/index.js';      // 
 import siteOper from './src/routers/site.routes.js';                    // 
 // import docOper from './src/routers/documentation.routes.js';            // 
 import { config } from './src/config/config.js';                        // Archivo de configuración
-import { logger } from './src/utils/logger.js';                         // Archivo de loggers
+import logger from './src/config/logger.js';                            // Archivo de loggers
 
 /* ====================== INSTANCIA DE SERVER ======================= */
 const app = express();                      // Instanciando Express (Creando aplicación)
@@ -60,32 +60,32 @@ app.all('*', (req, res)=>{                  //
 });
 
 /* ===================== NORMALIZANDO MENSAJES ====================== */
-const authorSchema = new schema.Entity('author', {}, { idAttribute: 'email' });                         // 
-const messageSchema = new schema.Entity('post', { author: authorSchema }, { idAttribute: 'id' });       // 
-const msgsSchema = new schema.Entity('posts', { messages: [messageSchema] }, { idAttribute: 'id' });    // 
-const normalizing = (fullMsgs) => normalize(fullMsgs, msgsSchema);                                      // 
+// const authorSchema = new schema.Entity('author', {}, { idAttribute: 'email' });                         // 
+// const messageSchema = new schema.Entity('post', { author: authorSchema }, { idAttribute: 'id' });       // 
+// const msgsSchema = new schema.Entity('posts', { messages: [messageSchema] }, { idAttribute: 'id' });    // 
+// const normalizing = (fullMsgs) => normalize(fullMsgs, msgsSchema);                                      // 
 
-async function getAllNormalized() {                 // 
-    const msgs = await msgsDao.getAll();                // 
-    return normalizing({ id: 'messages', msgs});        // 
-}
+// async function getAllNormalized() {                 // 
+//     const msgs = await msgsDao.getAll();                // 
+//     return normalizing({ id: 'messages', msgs});        // 
+// }
 
 /* ============================ WEBSOCKET =========================== */
-io.on('connection', async (socket) => {                             // 
-    logger.info(`Client conected: ${socket.id}`);                       // 
+// io.on('connection', async (socket) => {                             // 
+//     logger.info(`Client conected: ${socket.id}`);                       // 
 
-    socket.emit('serv-msgs', await getAllNormalized());                 // 
-    socket.emit('serv-prods', await productsDao.getAll());              // 
+//     socket.emit('serv-msgs', await getAllNormalized());                 // 
+//     socket.emit('serv-prods', await productsDao.getAll());              // 
 
-    socket.on('client-msg', async (msg) => {                            // 
-        await msgsDao.save(msg);                                            // 
-        io.sockets.emit('serv-msgs', await getAllNormalized());             // 
-    });
-    socket.on('client-prods', async (prod) => {                         // 
-        await productsDao.save(prod);                                       // 
-        io.sockets.emit('serv-prods', await productsDao.getAll());          // 
-    });
-});
+//     socket.on('client-msg', async (msg) => {                            // 
+//         await msgsDao.save(msg);                                            // 
+//         io.sockets.emit('serv-msgs', await getAllNormalized());             // 
+//     });
+//     socket.on('client-prods', async (prod) => {                         // 
+//         await productsDao.save(prod);                                       // 
+//         io.sockets.emit('serv-prods', await productsDao.getAll());          // 
+//     });
+// });
 
 /* ============================ SERVIDOR ============================ */
 const server = httpServer.listen(config.port, () => {                   // 

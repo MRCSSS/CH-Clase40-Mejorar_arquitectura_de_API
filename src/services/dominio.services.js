@@ -1,12 +1,17 @@
 /* ============================ MODULOS ============================= */
 import bcrypt from 'bcrypt';
-// import { usersDao } from "../models/daos/index.js";
 import { unlink } from 'node:fs';
 // import { createTransport } from 'nodemailer';
-import ProductoDAOMongoDB from "../models2/daos/Productos.dao.js.js";
+import CartsDaoMongoDB from '../models/daos/CartsMongoDB.DAO.js';
+import MessagesDaoMongoDB from '../models/daos/MessagesMongoDB.DAO.js';
+import ProductsDaoMongoDB from '../models/daos/ProductsMongoDB.DAO.js';
+import UsersDaoMongoDB from '../models/daos/UsersDaoMongoDB.DAO.js';
 
 /* ====================== INSTANCIA DE ROUTER ======================= */
-const DAO = new ProductoDAOMongoDB();
+const cartsDao    = new CartsDaoMongoDB()     ;
+const msgsDao     = new MessagesDaoMongoDB()  ;
+const productsDao = new ProductsDaoMongoDB()  ;
+const usersDao    = new UsersDaoMongoDB()     ;
 // const transporter = createTransport({
 //     host: 'smtp.hostinger.com',
 //     port: 465,
@@ -22,12 +27,15 @@ const DAO = new ProductoDAOMongoDB();
 
 /* =========================== SERVICIOS ============================ */
 export async function getHomeServ(email) {
-    const {name, username} = await DAO.searchUser(email);
+    console.log("email => ", email);
+    const {name, username} = await usersDao.searchUser(email);
+    console.log("name => ", name);
+    console.log("username => ", username);
     return {name, username};
 }
 
 export async function postRegisterServ(formData, fileData) {
-    const userExists = await DAO.searchUser(formData.username);
+    const userExists = await usersDao.searchUser(formData.username);
 
     if (userExists !== null) {
         unlink(`${fileData.path}`);
@@ -45,7 +53,7 @@ export async function postRegisterServ(formData, fileData) {
         phone,
         userImg: imgName
     };
-    await DAO.save(newUser);
+    await usersDao.save(newUser);
 
     return null;
 }

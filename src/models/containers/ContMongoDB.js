@@ -1,37 +1,47 @@
-/* ---------------------- MODULOS IMPORTADOS ------------------------ */
-import mongoose from 'mongoose';
-import moment from 'moment';
+/* ============================ MODULOS ============================= */
+import CustomError from '../../classes/CustomError.class.js';
 import { config } from '../../config/config.js';
-import {logger} from '../../config/logger.js';
+// import { logger } from '../../config/logger.js';
+import MongoDBClient from '../../classes/DbClientMongo.class.js';
 
-mongoose.set('strictQuery', true);
-await mongoose.connect(config.mongoDB.url);
-/* ------------------------ CLASE CONTENEDOR ------------------------ */
+// mongoose.set('strictQuery', true);
+// await mongoose.connect(config.mongoDB.url);
+/* ======================== CONTAINER CLASS ========================+ */
 class ContMongoDB {
-    constructor(collectionName, squema) {
-        this.collection = mongoose.model(collectionName, squema);
+    constructor(model) {
+        this.collection = model;
+        this.container = new MongoDBClient();
     }
+
+
+    // constructor(collectionName, squema) {
+    //     this.collection = mongoose.model(collectionName, squema);
+    // }
 
     async getAll() {
         try {
             let docs = await this.collection.find({});
             return docs;
         } catch (error) {
-            logger.error(`{ error: '${error}' }`);
+            const err = new CustomError(500, 'Error al listarAll()', error);
+            // logger.error(err);
+            throw err;
         }
     }
 
     async save(obj) {
         try {
-            let newObj = await this.collection.create({ ...obj, timestamp: moment().format('DD/MM/YY HH:mm:ss') });
+            let newObj = await this.collection.create({ ...obj, timestamp: (new Date()).toString() });
             return newObj._id;
         } catch (error) {
-            logger.error(`{ error: '${error}' }`);
+            const err = new CustomError(500, 'Error al listarAll()', error);
+            // logger.error(err);
+            throw err;
         }
     }
 }
 
-/* ---------------------- MODULOS EXPORTADOS ------------------------ */
+/* ====================== MODULOS EXPORTADOS ======================== */
 export default ContMongoDB;
 
 // class ContMongoDB {

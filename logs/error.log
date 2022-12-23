@@ -87,3 +87,10 @@
 {"level":"error","message":"{ status: 500, route: 'GET  /login', ReferenceError: 'data is not defined' }"}
 {"level":"error","message":"{ status: 500, route: 'GET  /register', Error: 'No default engine was specified and no extension was provided.' }"}
 {"level":"error","message":"{ status: 500, route: 'GET  /login', Error: 'No default engine was specified and no extension was provided.' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', ReferenceError: 'Cannot access 'name' before initialization' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}

@@ -298,3 +298,10 @@
 {"level":"warn","message":"{ url: '/templates/prod_table.hbs', method: 'GET' }"}
 {"level":"warn","message":"{ url: '/templates/prod_table.hbs', method: 'GET' }"}
 {"level":"warn","message":"{ url: '/js/cart.js', method: 'GET' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', ReferenceError: 'Cannot access 'name' before initialization' }"}
+{"level":"error","message":"{ status: 500, route: 'GET  /home', TypeError: 'Cannot read properties of undefined (reading 'user')' }"}

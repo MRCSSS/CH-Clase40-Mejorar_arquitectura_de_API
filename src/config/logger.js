@@ -12,7 +12,7 @@ const loggerConfig = winston.createLogger({
     ]
 });
 
-let logger = null
+let logger = null;
 
 // if (config.server.NODE_ENV === 'production') {
 //   logger = log4js.getLogger('prod');
@@ -20,6 +20,6 @@ let logger = null
 //   logger = log4js.getLogger();
 // }
 
-logger = loggerConfig
+logger = loggerConfig;
 
 export default logger;
