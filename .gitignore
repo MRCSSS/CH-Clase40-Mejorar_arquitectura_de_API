@@ -5,6 +5,10 @@
 # /.pnp
 # .pnp.js
 /00-*
+/src/apiV1/doc
+/src/apiV1/healtCk
+/src/apiV1/products
+/src/apiV1/users
 
 # testing
 # /coverage
