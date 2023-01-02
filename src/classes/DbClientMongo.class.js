@@ -1,7 +1,7 @@
 /* ============================ MODULOS ============================= */
 import mongoose from "mongoose";
 import { config } from "../config/config.js";
-// import { logger } from "../config/logger.js";
+// import { logger } from "../utils/logger.js";
 import CustomError from "./CustomError.class.js";
 import DBClient from "./DbClient.class.js";
 

@@ -28,7 +28,9 @@ const sqlite3    = resVarEnv( process.env.SQLITE3    );
 /* =================== OBJETO CONFIGURADOR DE DB ==================== */
 export const config = {
     port:           process.env.PORT,
-    nodeEnv:        process.env.NODE_ENV,
+    server: {
+        NODE_ENV:        process.env.NODE_ENV,
+    },
     dbType:         process.env.DB_TYPE,
     fileSystem:     fileSys,
     fireBase:       firebase,

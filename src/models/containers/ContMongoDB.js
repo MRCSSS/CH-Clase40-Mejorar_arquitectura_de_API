@@ -1,7 +1,7 @@
 /* ============================ MODULOS ============================= */
 import CustomError from '../../classes/CustomError.class.js';
 import { config } from '../../config/config.js';
-// import { logger } from '../../config/logger.js';
+// import { logger } from '../../utils/logger.js';
 import MongoDBClient from '../../classes/DbClientMongo.class.js';
 
 // mongoose.set('strictQuery', true);
