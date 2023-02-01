@@ -1,12 +1,16 @@
-/* =================================== MODULES =================================== */
-// import * as service from "./service.js";
-// import * as dto from "./dto.js";
-/* ================================== INSTANCES ================================== */
-
-/* ================================== FUNCTIONS ================================== */
-
-/* ================================= CONTROLLERS ================================= */
-export async function data(req,res) {
-    const dataDto = await service.getRoot(req.body);
-    return dataDto;
-};
+/* ===================================== DTO ===================================== */
+class productDTO {
+    constructor(product) {
+        this.id = product.id;
+        this.code = product.code;
+        this.name = product.name;
+        this.description = product.description;
+        this.categories = product.categories;
+        this.price = product.price;
+        this.stock = product.stock;
+        this.prodImg = product.prodImg;
+        this.timestamp = product.timestamp;
+    }
+}
+/* =============================== EXPORTED MODULES ============================== */
+export default productDTO;

@@ -1,48 +1,93 @@
 /* =================================== MODULES =================================== */
-import * as userService from './service.js';
-import * as userDTO from "./dto.js";
+import userService from './service.js';
+import userDTO from "./dto.js";
 import logger from '../../utils/logger.js';
+import CustomError from '../../classes/CustomError.class.js';
 /* ================================== INSTANCES ================================== */
-
-/* ================================== FUNCTIONS ================================== */
-
-/* ================================= MIDDLEWARES ================================= */
-
-
+const service = new userService();
 /* ================================= CONTROLLERS ================================= */
-export async function register(req,res) {
-    const data = await service.getRoot(req.body);
-    try {
-        await userService.createCart();
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(201);
-    } catch (error) {
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+class userController {
+    register = async (req,res) => {
+        try {
+            await service.register(req.body, req.file.filename, req.file.path);
+            const customRes = {method: 'register', message: 'User registered successfully!!!'}
+            logger.info(`status: 201, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(201).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.message}`});
+        }
     }
-};
 
-export async function login(req,res) {
-    const data = await service.getRoot(req.body);
-    return dto.data(data);
-};
+    getUser = async (req, res) => {
+        try {
+            const user = await service.getUser(req.params.id);
+            const userData = new userDTO(user);
+            const customRes = {method: 'getUser', message: 'User found!!!', data: userData};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
+    }
 
-export async function updateUser(req,res) {
-    const data = await service.getRoot(req.body);
-    return dto.data(data);
-};
+    updateUser = async (req,res) => {
+        try {
+            await service.updateUser(req.params.id, req.body);
+            const customRes = {method: 'updateUser', message: `User whit ID '${req.params.id}' updated!!!`};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
+    }
 
-export async function deleteUser(req,res) {
-    const data = await service.getRoot(req.body);
-    return dto.data(data);
-};
+    deleteUser = async (req,res) => {
+        try {
+            await service.deleteUser(req.params.id);
+            const customRes = {method: 'deleteUser', message: `User whit ID '${req.params.id}' deleted!!!`};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
+    }
 
-export async function getAllUsers(req,res) {
-    const data = await service.getRoot(req.body);
-    return dto.data(data);
-};
+    getAllUsers = async (req,res) => {
+        try {
+            const allUsers = await service.getAllUsers();
+            const DTOdata = allUsers.map(user => {   
+                return new userDTO(user);
+            })
+            const customRes = {method: 'getAllUsers', users: DTOdata};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify({method: 'getAllUsers', users: DTOdata.length})}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
+    }
 
-export async function deleteAllUsers(req,res) {
-    const data = await service.getRoot(req.body);
-    return dto.data(data);
-};
+    deleteAllUsers = async (req,res) => {
+        try {
+            await service.deleteAllUsers();
+            const customRes = {method: 'deleteAllUsers', message: `All users deleted!!!`};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
+    }
+}
+/* =============================== EXPORTED MODULES ============================== */
+export default userController;

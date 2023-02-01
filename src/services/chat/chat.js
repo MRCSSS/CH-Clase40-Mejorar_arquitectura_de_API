@@ -1,5 +1,5 @@
 /* =================================== MODULES =================================== */
-import { httpServer } from '../../app.js';
+import { httpServer } from '../../../app.js';
 // import { normalize, schema } from 'normalizr';
 // import { Server } from 'socket.io';
 // import { msgsDao, productsDao } from './src/models/daos/index.js';

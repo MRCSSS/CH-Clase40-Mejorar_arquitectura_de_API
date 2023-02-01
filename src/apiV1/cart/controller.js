@@ -1,118 +1,101 @@
 /* =================================== MODULES =================================== */
-import * as cartService from "./service.js";
-import * as cartDTO from "./dto.js";
-import logger from "../../utils/logger.js";
-// import CustomError from "../../classes/CustomError.class.js";
+import cartService from './service.js';
+import {cartDTO, productCartDTO} from './dto.js';
+import logger from '../../utils/logger.js';
+import CustomError from '../../classes/CustomError.class.js';
 /* ================================== INSTANCES ================================== */
-
-/* ================================== FUNCTIONS ================================== */
-
+const service = new cartService();
 /* ================================= CONTROLLERS ================================= */
-export async function getAllCarts(req,res) {
-    try {
-        const carts = await cartService.getAllCarts();
-        const data = new cartDTO.cartsList(carts);
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(200).json({ carts: data });
-    } catch (error) {
-        // let {code, description, detail}
-        // const e = new CustomError(error.code,)
-        // logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${new CustomError() }' }`);
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+class cartsController {
+    createCart= async (req,res) => {
+        try {
+            let userEmail;
+            if (req.session.passport) {
+                userEmail = req.session.passport.user;
+            } else {
+                userEmail = 0;
+            }
+            await service.createCart(userEmail);
+            const customRes = {method: 'createCart', message: 'Cart created successfully!!!'};
+            logger.info(`status: 201, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(201).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.message}`});
+        }
     }
-};
 
-export async function postCart(req,res) {
-    try {
-        await cartService.createCart();
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(201);
-    } catch (error) {
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+    getAllCarts= async (req,res) => {
+        try {
+            const allCarts = await service.getAllCarts();
+            const DTOdata = allCarts.map(cart => {   
+                return new cartDTO(cart);
+            });
+            const customRes = {method: 'getAllCarts', carts: DTOdata};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify({method: 'getAllCarts', carts: DTOdata.length})}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
     }
-};
 
-export async function deleteCart(req,res) {
-    try {
-        await cartService.deleteCart(req.params.id);
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(200);
-    } catch (error) {
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+    deleteCart= async (req,res) => {
+        try {
+            await service.deleteCart(req.params.id);
+            const customRes = {method: 'deleteCart', message: `CartwithID '${req.params.id}' deleted!!!`};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
     }
-};
 
-export async function getProducts(req,res) {
-    try {
-        const products = await cartService.getProducts(req.params.id);
-        const data = await cartDTO.productsList(products);
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(200).json({ products: data });;
-    } catch (error) {
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+    getCartProducts= async (req,res) => {
+        try {
+            const allCartProducts = await service.getProducts(req.params.id);
+            const DTOdata = allCartProducts.map(product => {   
+                return new productCartDTO(product);
+            })
+            const customRes = {method: 'getProducts', cart_products: DTOdata};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify({method: 'getAllCarts', products: DTOdata.length})}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
     }
-};
 
-export async function postProducts(req,res) {
-    try {
-        await cartService.postProducts(req.params.id, req.body);
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(200);
-    } catch (error) {
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+    updateCartProducts= async (req,res) => {
+        try {
+            await service.updateProducts(req.params.id, req.body);
+            const customRes = {method: 'updateCartProducts', message: 'Products in Cart updated successfully!!!'}
+            logger.info(`status: 201, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(201).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.message}`});
+        }
     }
-};
 
-export async function deleteProduct(req,res) {
-    try {
-        await cartService.deleteProduct(req.params.id,req.params.id_product);
-        logger.info(`status: 200, route: '${req.method} ${req.baseUrl} ${req.url}'`);
-        return res.status(200);
-    } catch (error) {
-        logger.error(`status: 500, route: '${req.method} ${req.baseUrl} ${req.url}', error: '${error}' }`);
-        return res.status(500);
+    deleteCartProduct= async (req,res) => {
+        try {
+            await service.deleteProduct(req.params.id, req.params.id_prod);
+            const customRes = {method: 'deleteCartProduct', message: `Product with ID '${req.params.id_prod}' deleted of Cart withID '${req.params.id}'!!!`};
+            logger.info(`status: 200, route: '${req.method} ${req.baseUrl}${req.url}', ${JSON.stringify(customRes)}`);
+            return res.status(200).json(customRes);
+        } catch (error) {
+            const e = new CustomError(error);
+            logger.error(`status: ${e.code}, route: '${req.method} ${req.baseUrl}${req.url}', ${e.name}: '${e.message}' `);
+            return res.status(e.code).json({error: `${e.name}: ${e.message}`});
+        }
     }
-};
-
-
-// cartsRouter.get('/', async (req, res)=>{
-//     const products = await carts.getAll();
-//     return res.status(200).json({ products: products.productos });
-// });
-
-// cartsRouter.post('/', async (req, res)=>{
-//     return res.status(201).json({ id: await carts.save({ productos: [] }) });
-// });
-
-// cartsRouter.delete('/:id', async (req, res)=>{
-//     await carts.deleteById(req.params.id)
-//     return res.status(200).json({ msg: 'Cart deleted!' });
-// });
-
-// cartsRouter.get('/:id/productos', async (req, res)=>{
-//     const cartSelected = await carts.getById(req.params.id)
-//     return res.status(200).json({ products: cartSelected.productos });
-// });
-
-// cartsRouter.post('/:id/productos', async (req, res)=>{
-//     const cartSelected = await carts.getById(req.params.id)
-//     const prodSelected = await prods.getById(req.body.id)
-//     cartSelected.productos.push(prodSelected)
-//     return res.status(200).json(await carts.update(cartSelected, req.params.id));
-// });
-
-// cartsRouter.delete('/:id/productos/:id_prod', async (req, res)=>{
-//     const cartSelected = await carts.getById(req.params.id)
-//     const index = cartSelected.productos.findIndex(prod => prod.id == req.params.id_prod)
-        
-//     if (index != -1) {
-//         cartSelected.productos.splice(index, 1)
-//         return res.status(200).json({ msg: 'Product in cart deleted!', description: await carts.update(cartSelected, req.params.id)})
-//     }
-//     return res.status(204).json({ msg: '', description: '' })
-// });
+}
+/* =============================== EXPORTED MODULES ============================== */
+export default cartsController;

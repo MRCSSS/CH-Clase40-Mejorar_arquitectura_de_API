@@ -1,12 +1,24 @@
-/* =================================== MODULES =================================== */
-// import * as service from "./service.js";
-// import * as dto from "./dto.js";
-/* ================================== INSTANCES ================================== */
+/* ===================================== DTO ===================================== */
+class cartDTO {
+    constructor(cart) {
+        this.id = cart.id;
+        this.userID = cart.userID;
+        this.status = cart.status;
+        this.products = cart.products;
+        this.timestamp = cart.timestamp;
+    }
+}
 
-/* ================================== FUNCTIONS ================================== */
+class productCartDTO {
+    constructor(product) {
+        this.id = product.id;
+        this.code = product.code;
+        this.name = product.name;
+        this.price = product.price;
+        this.prodImg = product.prodImg;
+        this.qty = product.qty;
+    }
+}
 
-/* ================================= CONTROLLERS ================================= */
-export async function data(req,res) {
-    const dataDto = await service.getRoot(req.body);
-    return dataDto;
-};
+/* =============================== EXPORTED MODULES ============================== */
+export {cartDTO, productCartDTO};

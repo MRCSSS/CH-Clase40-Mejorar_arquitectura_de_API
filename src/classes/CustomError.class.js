@@ -1,11 +1,32 @@
+/* ================================ CUSTOM ERROR  ================================ */
 class CustomError {
-    constructor(code, description, detail){
-        this.code = code;
-        this.description = description;
-        this.detail = detail;
+    constructor(error){
+        if (error.customCode !== undefined){
+            this.code = error.customCode;
+        } else if (error.code !== undefined) {
+            this.code = error.code;
+        } else {
+            this.code = 500;
+        }
+
+        if (error.customName !== undefined){
+            this.name = error.customName;
+        } else if (error.name !== undefined) {
+            this.name = error.name;
+        } else {
+            this.name = 'Error';
+        }
+
+        if (error.customMsg !== undefined){
+            this.message = error.customMsg;
+        } else if (error.message !== undefined) {
+            this.message = error.message;
+        } else {
+            this.message = `${error}`;
+        }
     }
 }
-
+/* =============================== EXPORTED MODULES ============================== */
 export default CustomError;
 
 // switch (error.code) {

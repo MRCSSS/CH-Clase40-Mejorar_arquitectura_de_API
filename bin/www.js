@@ -1,7 +1,7 @@
 /* =================================== MODULES =================================== */
 import app from "../app.js";
 import { createServer } from 'http';
-import { config } from '../src/config/config.js';
+import config from '../src/config/config.js';
 import logger from '../src/utils/logger.js';
 /* ================================== INSTANCES ================================== */
 const httpServer = createServer(app);

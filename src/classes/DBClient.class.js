@@ -1,20 +1,18 @@
-/* ============================ MODULOS ============================= */
+/* =================================== MODULES =================================== */
 import CustomError from "./CustomError.class.js";
-
-/* ===================== DATA BASE CLIENT CLASS ===================== */
+/* =========================== DATA BASE CLIENT CLASS  =========================== */
 class DBClient {
     async connect(){
-        throw new CustomError(500, "Falta implementar", "method 'connect' en Sub Clase")
+        throw new CustomError(501, "DBClient: connect() error", "not implemented!")
     }
 
     async disconnect(){
-        throw new CustomError(500, "Falta implementar", "method 'disconnect' en Sub Clase")
+        throw new CustomError(501, "DBClient: disconnect() error", "not implemented!")
     }
 
     static getInstance() {
-        throw new CustomError(500, "Falta implementar", "method 'getInstance' en Sub Clase")
+        throw new CustomError(501, "DBClient: getInstance() error", "not implemented!")
     }
 }
-
-/* ====================== MODULOS EXPORTADOS ======================== */
+/* =============================== EXPORTED MODULES ============================== */
 export default DBClient;

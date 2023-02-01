@@ -1,1 +1,0 @@
-[2022-12-30T23:27:06.855Z][test:error] status: 500, route: 'GET /apiV1/cart /', error: 'TypeError: cartService.getAllCarts is not a function' }

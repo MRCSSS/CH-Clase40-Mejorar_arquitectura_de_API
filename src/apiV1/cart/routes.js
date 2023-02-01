@@ -1,20 +1,21 @@
 /* =================================== MODULES =================================== */
 import { Router } from "express";    
-import * as cartCtrlr from './controller.js';
+import cartsController from './controller.js';
 /* ================================== INSTANCES ================================== */
+const controller = new cartsController();
 const cartRouter = Router();
 /* =================================== ROUTES  =================================== */
 //     - Carts
 cartRouter.route ('/')
-    .get    (cartCtrlr.getAllCarts)
-    .post   (cartCtrlr.postCart)
+    .post   (controller.createCart)
+    .get    (controller.getAllCarts)
 cartRouter.route ('/:id')
-    .delete (cartCtrlr.deleteCart)
-//     - Cart products
+    .delete (controller.deleteCart)
+    //     - Cart products
 cartRouter.route ('/:id/products')
-    .get    (cartCtrlr.getProducts)
-    .post   (cartCtrlr.postProducts)
+    .get    (controller.getCartProducts)
+    .post   (controller.updateCartProducts)
 cartRouter.route ('/:id/products/:id_prod')
-    .delete (cartCtrlr.deleteProduct)
+    .delete (controller.deleteCartProduct)
 /* =============================== EXPORTED MODULES ============================== */
 export default cartRouter;
